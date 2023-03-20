@@ -1,0 +1,17 @@
+changelog:
+  exclude:
+    authors:
+      - renovate
+  categories:
+    - title: Что нового
+      labels:
+        - Фича
+    - title: Исправлено
+      labels:
+        - Баг
+    - title: Рефактор кода
+      labels:
+        - Рефактор
+    - title: Другие изменения
+      labels:
+        - "*"
