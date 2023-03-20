@@ -1,0 +1,35 @@
+# own stuff
+py.py
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+media/
+static/
+
+# nginx
+nginx/*.*
+!nginx/*.conf
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+*.env
+
+# IntelliJ
+.idea/
+
+# Visual Studio cache/options directory
+.vs/
+
+.tox/
