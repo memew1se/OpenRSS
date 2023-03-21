@@ -1,0 +1,32 @@
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: check-yaml
+      - id: check-added-large-files
+      - id: check-merge-conflict
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+
+-   repo: https://github.com/python-poetry/poetry
+    rev: 1.4.1
+    hooks:
+      - id: poetry-check
+        args: [--directory=api/]
+      - id: poetry-lock
+        args: [--directory=api/]
+
+-   repo: https://github.com/psf/black
+    rev: 23.1.0
+    hooks:
+      - id: black
+
+-   repo: https://github.com/PyCQA/flake8
+    rev: 6.0.0
+    hooks:
+      - id: flake8
+
+-   repo: https://github.com/pycqa/isort
+    rev: 5.12.0
+    hooks:
+      - id: isort

@@ -11,6 +11,16 @@ python = "^3.11"
 django = "4.1.7"
 djangorestframework = "3.14.0"
 
+[tool.black]
+extend-exclude = '''
+(
+  migrations/
+)
+'''
+
+[tool.isort]
+profile = "black"
+
 
 [build-system]
 requires = ["poetry-core"]
