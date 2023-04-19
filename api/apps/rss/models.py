@@ -13,7 +13,9 @@ class Feed(models.Model):
 
 
 class MainFeed(Feed):
-    slug = models.SlugField(verbose_name="Слаг", help_text="Слаг RSS-канала")
+    slug = models.SlugField(
+        unique=True, verbose_name="Слаг", help_text="Слаг RSS-канала"
+    )
 
     class Meta:
         verbose_name = "Основной RSS-канал"
