@@ -1,0 +1,38 @@
+[
+  {
+    "model": "rss.MainFeed",
+    "pk": 1,
+    "fields": {
+      "title": "Хабр",
+      "url": "https://habr.com/ru/rss/all/",
+      "slug": "habr"
+    }
+  },
+  {
+    "model": "rss.MainFeed",
+    "pk": 2,
+    "fields": {
+      "title": "DTF",
+      "url": "https://dtf.ru/rss",
+      "slug": "dtf"
+    }
+  },
+  {
+    "model": "rss.MainFeed",
+    "pk": 3,
+    "fields": {
+      "title": "vc.ru",
+      "url": "https://vc.ru/rss/all",
+      "slug": "vc-ru"
+    }
+  },
+  {
+    "model": "rss.MainFeed",
+    "pk": 4,
+    "fields": {
+      "title": "sports.ru",
+      "url": "https://www.sports.ru/rss/topnews.xml",
+      "slug": "sports-ru"
+    }
+  }
+]
