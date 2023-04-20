@@ -15,7 +15,7 @@ from pathlib import Path
 from aiohttp import ClientSession
 from dotenv import load_dotenv
 
-from . import shared
+from .. import shared
 
 load_dotenv()
 
