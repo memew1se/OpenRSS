@@ -1,5 +1,6 @@
+<script setup>
+import TheHeader from "~/components/the-header/TheHeader.vue"
+</script>
 <template>
-  <div>
-    <NuxtWelcome />
-  </div>
+    <TheHeader />
 </template>
