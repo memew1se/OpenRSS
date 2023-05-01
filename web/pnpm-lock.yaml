@@ -36,6 +36,9 @@ devDependencies:
   prettier-plugin-packagejson:
     specifier: 2.4.3
     version: 2.4.3(prettier@2.8.4)
+  tailwindcss:
+    specifier: ^3.3.2
+    version: 3.3.2
   typescript:
     specifier: ^5.0.4
     version: 5.0.4
