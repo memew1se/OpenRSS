@@ -11,13 +11,13 @@
     "typecheck": "nuxt typecheck"
   },
   "devDependencies": {
+    "@nuxtjs/tailwindcss": "^6.6.7",
     "@types/node": "^18",
     "autoprefixer": "^10.4.14",
     "nuxt": "^3.4.2",
     "postcss": "^8.4.23",
     "prettier": "2.8.4",
     "prettier-plugin-packagejson": "2.4.3",
-    "tailwindcss": "^3.3.2",
     "typescript": "^5.0.4"
   },
   "peerDependencies": {
@@ -26,5 +26,8 @@
     "prettier-plugin-packagejson": "*",
     "prettier-plugin-sort-json": "*",
     "prettier-plugin-tailwindcss": "*"
+  },
+  "dependencies": {
+    "vite-svg-loader": "^4.0.0"
   }
 }
