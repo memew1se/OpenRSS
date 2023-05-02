@@ -10,6 +10,11 @@
     "preview": "nuxt preview",
     "typecheck": "nuxt typecheck"
   },
+  "dependencies": {
+    "@pinia/nuxt": "^0.4.9",
+    "pinia": "^2.0.35",
+    "vite-svg-loader": "^4.0.0"
+  },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^6.6.7",
     "@types/node": "^18",
@@ -27,8 +32,5 @@
     "prettier-plugin-packagejson": "*",
     "prettier-plugin-sort-json": "*",
     "prettier-plugin-tailwindcss": "*"
-  },
-  "dependencies": {
-    "vite-svg-loader": "^4.0.0"
   }
 }
