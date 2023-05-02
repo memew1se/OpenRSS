@@ -11,8 +11,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "#6584D3"
-      }
+        accent: "#6584D3",
+        primary: "#B6B6B6",
+        secondary: "#D9D9D9",
+      },
     },
   },
   plugins: [],

@@ -2,5 +2,6 @@
 import TheHeader from "~/components/the-header/TheHeader.vue"
 </script>
 <template>
-    <TheHeader />
+  <TheHeader />
+  <SideMenu />
 </template>
