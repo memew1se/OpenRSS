@@ -1,14 +1,14 @@
-import {defineStore} from "pinia";
+import { defineStore } from "pinia"
 
 export const useSideMenuStore = defineStore("sidemenu", () => {
-    const isHidden = ref(false)
+  const isHidden = ref(false)
 
-    function hide() {
-        isHidden.value = !isHidden.value
-    }
+  function hide() {
+    isHidden.value = !isHidden.value
+  }
 
-    return {
-        isHidden,
-        hide,
-    }
+  return {
+    isHidden,
+    hide,
+  }
 })
