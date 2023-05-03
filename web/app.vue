@@ -4,4 +4,5 @@ import TheHeader from "~/components/the-header/TheHeader.vue"
 <template>
   <TheHeader />
   <SideMenu />
+  <NuxtPage />
 </template>
