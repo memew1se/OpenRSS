@@ -2,12 +2,17 @@
 import svgLoader from "vite-svg-loader"
 export default defineNuxtConfig({
   css: ["~/assets/css/main.css"],
-  modules: ["@nuxtjs/tailwindcss", "@pinia/nuxt"],
+  modules: ["@nuxtjs/tailwindcss", "@pinia/nuxt", '@kevinmarrec/nuxt-pwa'],
   postcss: {
     plugins: {
       tailwindcss: {},
       autoprefixer: {},
     },
+  },
+  pwa: {
+    workbox: {
+      enabled: true
+    }
   },
   vite: {
     plugins: [svgLoader()],
