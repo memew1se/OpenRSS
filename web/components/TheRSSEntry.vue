@@ -10,8 +10,8 @@ defineProps<{
       :href="rssentry.link"
       target="_blank"
       class="underline text-blue-600 hover:text-blue-800 visited:text-purple-600"
-      ><span class="text-4xl">{{ rssentry.title }}</span></a
+      ><span class="text-3xl">{{ rssentry.title }}</span></a
     >
-    <p>{{ rssentry.date }}</p>
+    <p>{{ rssentry.published }}</p>
   </li>
 </template>
