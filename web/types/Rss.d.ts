@@ -6,5 +6,9 @@ interface RssLink {
 interface RssEntry {
   title: string
   link: string
-  date: string
+  published: string
+}
+
+interface RssFeed {
+  entries: RssEntry[]
 }
