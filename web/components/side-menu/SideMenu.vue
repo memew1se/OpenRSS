@@ -2,10 +2,9 @@
 import MenuLink from "~/components/side-menu/MenuLink.vue"
 import { useSideMenuStore } from "~/store/sidemenu"
 
-const rsslinks = [
-  { title: "title", slug: "slug" },
-  { title: "title1", slug: "slug1" },
-]
+const { data: rsslinks } = await useFetch<RssLink[]>("/main-feed/", {
+    baseURL: useRuntimeConfig().public.apiBase,
+})
 const sideMenuStore = useSideMenuStore()
 </script>
 
@@ -15,6 +14,6 @@ const sideMenuStore = useSideMenuStore()
     id="sidemenu"
     class="flex flex-col w-1/3 bg-primary fixed h-screen"
   >
-    <MenuLink v-for="link in rsslinks" :link="link" :key="link.slug" />
+    <MenuLink v-for="link in rsslinks" :link="link" />
   </div>
 </template>
