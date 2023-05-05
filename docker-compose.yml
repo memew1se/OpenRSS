@@ -1,0 +1,94 @@
+version: "3"
+
+services:
+  db:
+    image: postgres:15-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    restart: always
+    networks:
+      - deploy-bridge
+    environment:
+      POSTGRES_USER: "${DB_USER}"
+      POSTGRES_PASSWORD: "${DB_PASSWORD}"
+      POSTGRES_DB: "${DB_NAME}"
+      TZ: "Europe/Moscow"
+      PGTZ: "Europe/Moscow"
+
+  api:
+    expose:
+      - 8000
+    build:
+      context: api
+      dockerfile: Dockerfile
+    networks:
+      - deploy-bridge
+    command: >
+      bash -c "
+      python manage.py collectstatic --noinput &&
+      python manage.py migrate &&
+      uvicorn config.asgi:application --host 0.0.0.0 --port 8000"
+    volumes:
+      - static_volume:/home/api/backend/assets/static
+      - media_volume:/home/api/backend/assets/media
+    restart: always
+    environment:
+      DB_HOST: "${DB_HOST}"
+      DB_NAME: "${DB_NAME}"
+      DB_PASSWORD: "${DB_PASSWORD}"
+      DB_PORT: "${DB_PORT}"
+      DB_USER: "${DB_USER}"
+      DJANGO_SECRET_KEY: "${DJANGO_SECRET_KEY}"
+      DJANGO_SETTINGS_MODULE: "${DJANGO_SETTINGS_MODULE}"
+    depends_on:
+      - db
+      - redis
+
+  redis:
+    image: redis:7.0.11-alpine
+    restart: always
+    networks:
+      - deploy-bridge
+
+  web:
+    expose:
+      - 3000
+    restart: always
+    environment:
+      NUXT_PUBLIC_API_BASE: "${NUXT_PUBLIC_API_BASE}"
+    build:
+      context: web
+      dockerfile: Dockerfile
+    networks:
+      - deploy-bridge
+    depends_on:
+      - api
+
+  nginx:
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - static_volume:/backend/assets/static
+      - media_volume:/backend/assets/media
+    build:
+      context: nginx
+      dockerfile: Dockerfile
+    networks:
+      - deploy-bridge
+    depends_on:
+      - api
+
+
+networks:
+  deploy-bridge:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.32.0.0/16
+
+
+volumes:
+  postgres_data:
+  static_volume:
+  media_volume:
