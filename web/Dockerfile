@@ -14,7 +14,7 @@ COPY .npmrc .
 
 RUN npm install -g pnpm
 RUN pnpm pkg set scripts.prepare="nuxt prepare"
-RUN pnpm install --prod
+RUN pnpm install
 
 COPY . .
 
