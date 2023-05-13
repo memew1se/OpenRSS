@@ -1,5 +1,8 @@
+import datetime
+
 import feedparser
 from adrf.views import APIView as AsyncAPIView
+from django.core.cache import cache
 from feedparser import FeedParserDict
 from rest_framework.request import Request
 from rest_framework.response import Response
@@ -21,11 +24,27 @@ class MainFeedListView(AsyncAPIView):
 
 class MainFeedRetrieveView(AsyncAPIView):
     async def get(self, request: Request, **kwargs: dict):
+        # getting parameters
         slug = kwargs["slug"]
-        feed = await MainFeed.objects.aget(slug=slug)
-        async with shared.AIOHTTP_SESSION.get(feed.url) as resp:
-            text = await resp.text()
-        fd: FeedParserDict = feedparser.parse(text)
-        rss = {"channel": fd.channel, "entries": fd.entries}
+        date = datetime.datetime.now()
+        minutes_quart = date.minute // 15
 
-        return Response(rss)
+        # getting cache
+        feed_key = f"{slug}-{date.strftime('%d-%m-%Y-%H')}-{minutes_quart}"
+        cached_rss = await cache.aget(feed_key)
+
+        if cached_rss:
+            return Response(cached_rss)
+        else:
+            # getting and parsing feed
+            feed = await MainFeed.objects.aget(slug=slug)
+            async with shared.AIOHTTP_SESSION.get(feed.url) as resp:
+                text = await resp.text()
+            fd: FeedParserDict = feedparser.parse(text)
+            rss = {"channel": fd.channel, "entries": fd.entries}
+
+            # setting cache
+            cache_time = 15 * 60 - (date.minute % 15 * 60 + date.second)
+            await cache.aset(feed_key, rss, cache_time)
+
+            return Response(rss)
