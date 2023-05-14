@@ -11,6 +11,9 @@ class Feed(models.Model):
     class Meta:
         abstract = True
 
+    def __str__(self):
+        return self.title
+
 
 class MainFeed(Feed):
     slug = models.SlugField(
