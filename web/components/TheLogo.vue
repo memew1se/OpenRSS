@@ -4,6 +4,6 @@ import Logo from "@/assets/icons/openrss.svg"
 
 <template>
   <NuxtLink :to="'/'">
-    <Logo class="top-1/2" />
+    <Logo class="m-5 pt-2 w-full" />
   </NuxtLink>
 </template>
