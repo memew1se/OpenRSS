@@ -1,4 +1,4 @@
-FROM nginx:1.24-alpine
+FROM nginx:1.25-alpine
 COPY cache.conf /etc/nginx/cache.conf
 COPY https.conf /etc/nginx/https.conf
 COPY main.conf /etc/nginx/main.conf
