@@ -2,7 +2,7 @@ version: "3"
 
 services:
   db:
-    image: postgres:15-alpine
+    image: postgres:16-alpine
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     restart: always
@@ -45,7 +45,7 @@ services:
       - redis
 
   redis:
-    image: redis:7.0.11-alpine
+    image: redis:7.2.3-alpine
     restart: always
     networks:
       - deploy-bridge

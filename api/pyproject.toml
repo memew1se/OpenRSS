@@ -8,18 +8,18 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.11"
-adrf = "0.1.1"
-aiohttp = "3.8.4"
-django = "4.2.1"
+adrf = "0.1.2"
+aiohttp = "3.9.1"
+django = "5.0"
 djangorestframework = "3.14.0"
-feedparser = "6.0.10"
-gunicorn = "20.1.0"
+feedparser = "6.0.11"
+gunicorn = "21.2.0"
 hiredis = "2.2.3"
-psycopg = "3.1.9"
-psycopg2-binary = "2.9.6"
+psycopg = "3.1.15"
+psycopg2-binary = "2.9.9"
 python-dotenv = "1.0.0"
-redis = "4.5.5"
-uvicorn = "0.22.0"
+redis = "5.0.1"
+uvicorn = "0.24.0.post1"
 
 [tool.black]
 extend-exclude = '''
